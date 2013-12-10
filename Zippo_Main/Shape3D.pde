@@ -64,7 +64,7 @@ abstract class Shape3D {
   }
 
 
-  // override if you need these
+  // override if you need theses
   void rotateLightX(float theta) {
   }
 

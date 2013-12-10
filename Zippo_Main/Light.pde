@@ -10,8 +10,10 @@ class Light extends Shape3D {
   float triHt;
   float a, b, c;
   
+  float centerpoint; 
   float xpos;
   float ypos;
+  float zpos;
   float xspeed;
 
   // constructor
@@ -49,6 +51,7 @@ class Light extends Shape3D {
 
   //draws LightPrism
   void drawLight() {
+    point(xpos, ypos, zpos);
     for (int i=0; i<topPent.length; i++) {
       // icosahedron top
       beginShape();
