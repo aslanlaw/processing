@@ -13,7 +13,7 @@ color[] b_colors = { b1, b2, b3 }; //array of above colors
 void setup() {
   size(1200, 800, P3D);
 
-  prism1 = new Light(100);
+  prism1 = new Light(random(25, 50));
 }
 
 void draw() {
@@ -22,12 +22,9 @@ void draw() {
   translate(width/2, height/2);
   
   pushMatrix();
-  rotateX(frameCount*PI/200);
-  rotateY(frameCount*PI/300);
-  stroke(255);
-  fill(b_colors[int(random(0,3))]);
-  //fill(c1);
-  prism1.drawLight();
+  prism1.rot();
+  prism1.update();
   prism1.moveLight();
+  prism1.shrinkLight();
   popMatrix();
 }

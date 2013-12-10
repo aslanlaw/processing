@@ -52,6 +52,8 @@ class Light extends Shape3D {
   //draws LightPrism
   void drawLight() {
     point(xpos, ypos, zpos);
+    stroke(255);
+    fill(b_colors[int(random(0,3))]);
     for (int i=0; i<topPent.length; i++) {
       // icosahedron top
       beginShape();
@@ -157,14 +159,27 @@ class Light extends Shape3D {
   }
 
   void rotateLightX(float theta) {
+    
   }
 
   void rotateLightY(float theta) {
   }
   
+  void rot() {
+    pushMatrix();
+    rotateX(frameCount*PI/200);
+    rotateY(frameCount*PI/300);
+    drawLight();
+    popMatrix();
+  }
+  
+  void update() {
+  }
+  
   //move on spot in bounding box
   void moveLight() {
-
+      x = y + 20 * sin(angle) * cos(angle);
+      angle += 0.04;
   }
   
   //pathing with curve to simulate 3D
@@ -174,7 +189,6 @@ class Light extends Shape3D {
   
   //shrink Prism to simulate 3D
   void shrinkLight() {
-    
   }
 }
 
