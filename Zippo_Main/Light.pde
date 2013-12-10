@@ -9,6 +9,10 @@ class Light extends Shape3D {
   float triDist;
   float triHt;
   float a, b, c;
+  
+  float xpos;
+  float ypos;
+  float xspeed;
 
   // constructor
   Light(float radius) {
@@ -157,7 +161,7 @@ class Light extends Shape3D {
   
   //move on spot in bounding box
   void moveLight() {
-    
+
   }
   
   //pathing with curve to simulate 3D

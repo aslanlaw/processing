@@ -4,16 +4,10 @@ Light prism1;
 ArrayList<Light> bandLight = new ArrayList<Light> ();
 ArrayList<Light> crowdLight = new ArrayList<Light> ();
 
-// random selects one of above colors
-color[] colors = {
-  cr, cg, cb, cy
-};
-
 void setup() {
   size(1200, 800, P3D);
   
   prism1 = new Light(75);
-  
 }
 
 void draw() {
@@ -25,7 +19,7 @@ void draw() {
   rotateX(frameCount*PI/200);
   rotateY(frameCount*PI/300);
   stroke(255);
-  fill(170, 170, 0);
+  fill(50, 150, 255);
   prism1.drawLight();
   popMatrix();
   
