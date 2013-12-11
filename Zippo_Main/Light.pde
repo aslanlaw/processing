@@ -15,6 +15,9 @@ class Light extends Shape3D {
   float ypos;
   float zpos;
   float xspeed;
+  
+  float ac = 0.0;
+  float sc = 0.0;
 
   // constructor
   Light(float radius) {
@@ -189,13 +192,9 @@ class Light extends Shape3D {
   
   //shrink Prism to simulate 3D
   void shrinkLight() {
-    float a = 0.0;
-    float s = 0.0;
-    
-    a = a + 2;
-    s = 1/((a)*2);
-    
-    scale(s, s, s);
+    ac = ac - 0.04;
+    sc = 1/((ac)*0.8);
+    scale(sc);
   }
 }
 
