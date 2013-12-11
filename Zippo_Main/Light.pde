@@ -169,8 +169,7 @@ class Light extends Shape3D {
   void rotateLightY(float theta) {
   }
   
-  void update() {
-    pos.add(vel);
+  void bandUpdate() {
     pushMatrix();
     translate(pos.x, pos.y);
     rotateX(frameCount*PI/200);
@@ -180,11 +179,22 @@ class Light extends Shape3D {
     popMatrix();
   }
   
+  void crowdUpdate() {
+    pos.add(vel);
+    pushMatrix();
+    translate(pos.x, pos.y);
+    rotateX(frameCount*PI/200);
+    rotateY(frameCount*PI/300);
+    //shrinkLight();
+    drawLight();
+    popMatrix();    
+  }
+  
   //move within a bounding box
   void moveLight() {
       float r = 20;
       x = y + r * sin(angle) * cos(angle);
-      angle += 0.04;
+      angle += random(0.01, 0.08);
   }
   
   //pathing with curve to simulate 3D

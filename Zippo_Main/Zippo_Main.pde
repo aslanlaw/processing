@@ -1,9 +1,10 @@
 
 
 ArrayList<Light> bandLight = new ArrayList<Light>();
-ArrayList<Light> crowdLight = new ArrayList<Light> ();
+ArrayList<Light> crowdLight = new ArrayList<Light>();
 
-int numBand = 10;
+int numBand = 3;
+int numCrowd = 20;
 
 // array of blue colors
 color b1 = color(25, 75, random(50, 100));
@@ -20,6 +21,12 @@ void setup() {
     Light bandPrism = new Light(25);
     bandLight.add(bandPrism);
   };
+  
+  // adding Light to crowdLight 
+  for (int i=0; i < numCrowd; i++) {
+    Light crowdPrism = new Light(20);
+    crowdLight.add(crowdPrism);
+  };
   //prism1 = new Light(25);
   //prism1 = new Light(random(25, 50));
 }
@@ -34,10 +41,23 @@ void draw() {
     // getting Light from bandLight array
     Light thePrisms = (Light) bandLight.get(i);
     
+    //thePrisms.shrinkLight();
+    
+    pushMatrix();
+    thePrisms.bandUpdate();
+    thePrisms.moveLight();
+    popMatrix();
+  }
+  
+  for (int i=0; i < crowdLight.size(); i++) {
+    
+    // getting Light from bandLight array
+    Light thePrisms = (Light) crowdLight.get(i);
+    
     thePrisms.shrinkLight();
     
     pushMatrix();
-    thePrisms.update();
+    thePrisms.crowdUpdate();
     thePrisms.moveLight();
     popMatrix();
   }
