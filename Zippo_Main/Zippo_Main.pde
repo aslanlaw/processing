@@ -15,7 +15,10 @@ color[] b_colors = { b1, b2, b3 }; //array of above colors
 void setup() {
   size(1200, 800, P3D);
   
-  prism1 = new Light(25);
+  for (int i=0; i < numBand; i++) {
+    bandLight.add(new Light(25));
+  }
+  //prism1 = new Light(25);
   //prism1 = new Light(random(25, 50));
 }
 
