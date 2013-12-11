@@ -11,10 +11,8 @@ class Light extends Shape3D {
   float a, b, c;
   
   float centerpoint; 
-  float xpos;
-  float ypos;
-  float zpos;
-  float xspeed;
+  
+  PVector pos, vel;
   
   float ac = 0.0;
   float sc = 0.0;
@@ -22,6 +20,10 @@ class Light extends Shape3D {
   // constructor
   Light(float radius) {
     this.radius = radius;
+    
+    pos = new PVector(random(-width/2, width/2), random(-height/2, height/2));
+    vel = new PVector(random(-1, 1)/9, random(-1, 1)/9);
+    
     init();
   }
 
@@ -54,7 +56,6 @@ class Light extends Shape3D {
 
   //draws LightPrism
   void drawLight() {
-    point(xpos, ypos, zpos);
     stroke(255);
     fill(b_colors[int(random(0,3))]);
     for (int i=0; i<topPent.length; i++) {
@@ -169,8 +170,9 @@ class Light extends Shape3D {
   }
   
   void update() {
+    pos.add(vel);
     pushMatrix();
-    translate(75, 0);
+    translate(pos.x, pos.y);
     rotateX(frameCount*PI/200);
     rotateY(frameCount*PI/300);
     //shrinkLight();
@@ -193,7 +195,7 @@ class Light extends Shape3D {
   //shrink Prism to simulate 3D
   void shrinkLight() {
     ac = ac - 0.04;
-    sc = 1/((ac)*0.8);
+    sc = 1/((ac)*0.3);
     scale(sc);
   }
 }
