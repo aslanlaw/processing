@@ -22,7 +22,7 @@ class Light extends Shape3D {
     this.radius = radius;
     
     pos = new PVector(random(-width/2, width/2), random(-height/2, height/2));
-    vel = new PVector(random(-1, 1)/9, random(-1, 1)/9);
+    vel = new PVector(random(-11, 1)/13, random(-11, 1)/13);
     
     init();
   }
@@ -57,7 +57,6 @@ class Light extends Shape3D {
   //draws LightPrism
   void drawLight() {
     stroke(255);
-    fill(b_colors[int(random(0,3))]);
     for (int i=0; i<topPent.length; i++) {
       // icosahedron top
       beginShape();
@@ -170,22 +169,21 @@ class Light extends Shape3D {
   }
   
   void bandUpdate() {
+    fill(b_colors[int(random(0,3))]);
     pushMatrix();
     translate(pos.x, pos.y);
     rotateX(frameCount*PI/200);
     rotateY(frameCount*PI/300);
-    //shrinkLight();
     drawLight();
     popMatrix();
   }
   
   void crowdUpdate() {
-    pos.add(vel);
+    fill(r_colors[int(random(0,3))]);
     pushMatrix();
     translate(pos.x, pos.y);
     rotateX(frameCount*PI/200);
     rotateY(frameCount*PI/300);
-    //shrinkLight();
     drawLight();
     popMatrix();    
   }
@@ -204,6 +202,8 @@ class Light extends Shape3D {
   
   //shrink Prism to simulate 3D
   void shrinkLight() {
+    pos.add(vel);
+    
     ac = ac - 0.04;
     sc = 1/((ac)*0.3);
     scale(sc);

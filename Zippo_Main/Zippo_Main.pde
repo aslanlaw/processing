@@ -12,19 +12,24 @@ color b2 = color(25, 75, random(75, 125));
 color b3 = color(25, 75, random(100, 150));
 color[] b_colors = { b1, b2, b3 }; //array of above colors
 
+// array of blue colors
+color r1 = color(random(50, 100), 25, 75);
+color r2 = color(random(75, 125), 55, 150);
+color r3 = color(random(100, 150), 75, 25);
+color[] r_colors = { r1, r2, r3 }; //array of above colors
 
 void setup() {
   size(1200, 800, P3D);
   
   // adding Light to bandLight (total of 3 for each band member)
   for (int i=0; i < numBand; i++) {
-    Light bandPrism = new Light(25);
+    Light bandPrism = new Light(random(15,30));
     bandLight.add(bandPrism);
   };
   
   // adding Light to crowdLight 
   for (int i=0; i < numCrowd; i++) {
-    Light crowdPrism = new Light(20);
+    Light crowdPrism = new Light(random(10,25));
     crowdLight.add(crowdPrism);
   };
   //prism1 = new Light(25);
@@ -54,9 +59,8 @@ void draw() {
     // getting Light from bandLight array
     Light thePrisms = (Light) crowdLight.get(i);
     
-    thePrisms.shrinkLight();
-    
     pushMatrix();
+    thePrisms.shrinkLight();
     thePrisms.crowdUpdate();
     thePrisms.moveLight();
     popMatrix();
