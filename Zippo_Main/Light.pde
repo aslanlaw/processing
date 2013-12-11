@@ -165,20 +165,20 @@ class Light extends Shape3D {
   void rotateLightY(float theta) {
   }
   
-  void rot() {
+  void update() {
     pushMatrix();
+    translate(75, 0);
     rotateX(frameCount*PI/200);
     rotateY(frameCount*PI/300);
+    shrinkLight();
     drawLight();
     popMatrix();
   }
   
-  void update() {
-  }
-  
-  //move on spot in bounding box
+  //move within a bounding box
   void moveLight() {
-      x = y + 20 * sin(angle) * cos(angle);
+      float r = 20;
+      x = y + r * sin(angle) * cos(angle);
       angle += 0.04;
   }
   
@@ -189,6 +189,13 @@ class Light extends Shape3D {
   
   //shrink Prism to simulate 3D
   void shrinkLight() {
+    float a = 0.0;
+    float s = 0.0;
+    
+    a = a + 0.04;
+    s = cos(a)*2;
+    
+    scale(s);
   }
 }
 
