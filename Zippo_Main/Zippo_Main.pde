@@ -4,7 +4,7 @@ ArrayList<Light> bandLight = new ArrayList<Light>();
 ArrayList<Light> crowdLight = new ArrayList<Light>();
 
 int numBand = 3;
-int numCrowd = 20;
+int numCrowd = 200;
 
 // array of blue colors
 color b1 = color(25, 75, random(50, 100));

@@ -202,11 +202,13 @@ class Light extends Shape3D {
   
   //shrink Prism to simulate 3D
   void shrinkLight() {
-    pos.add(vel);
     
-    ac = ac - 0.04;
-    sc = 1/((ac)*0.3);
-    scale(sc);
+   if (ac <= 10){
+      ac = ac + 0.04;
+   }
+   
+     sc = 1/((ac)*0.3);
+     scale(sc);
   }
 }
 
