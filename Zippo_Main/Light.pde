@@ -57,6 +57,7 @@ class Light extends Shape3D {
   //draws LightPrism
   void drawLight() {
     stroke(255);
+    strokeWeight(0.1);
     for (int i=0; i<topPent.length; i++) {
       // icosahedron top
       beginShape();
@@ -203,11 +204,11 @@ class Light extends Shape3D {
   //shrink Prism to simulate 3D
   void shrinkLight() {
     
-   if (ac <= 10){
-      ac = ac + 0.04;
+   if (ac <= 0.3){
+      ac = ac + 0.01;
    }
    
-     sc = 1/((ac)*0.3);
+     sc = 1/((ac)*2);
      scale(sc);
   }
 }

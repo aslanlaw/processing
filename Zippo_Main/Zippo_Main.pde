@@ -4,7 +4,7 @@ ArrayList<Light> bandLight = new ArrayList<Light>();
 ArrayList<Light> crowdLight = new ArrayList<Light>();
 
 int numBand = 3;
-int numCrowd = 200;
+int numCrowd = 1000;
 
 // array of blue colors
 color b1 = color(25, 75, random(50, 100));
@@ -20,16 +20,17 @@ color[] r_colors = { r1, r2, r3 }; //array of above colors
 
 void setup() {
   size(1200, 800, P3D);
+  smooth();
   
   // adding Light to bandLight (total of 3 for each band member)
   for (int i=0; i < numBand; i++) {
-    Light bandPrism = new Light(random(15,30));
+    Light bandPrism = new Light(5);
     bandLight.add(bandPrism);
   };
   
   // adding Light to crowdLight 
   for (int i=0; i < numCrowd; i++) {
-    Light crowdPrism = new Light(random(10,25));
+    Light crowdPrism = new Light(random(2,5));
     crowdLight.add(crowdPrism);
   };
   //prism1 = new Light(25);
