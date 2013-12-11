@@ -170,7 +170,7 @@ class Light extends Shape3D {
     translate(75, 0);
     rotateX(frameCount*PI/200);
     rotateY(frameCount*PI/300);
-    shrinkLight();
+    //shrinkLight();
     drawLight();
     popMatrix();
   }
@@ -192,10 +192,10 @@ class Light extends Shape3D {
     float a = 0.0;
     float s = 0.0;
     
-    a = a + 0.04;
-    s = cos(a)*2;
+    a = a + 2;
+    s = 1/((a)*2);
     
-    scale(s);
+    scale(s, s, s);
   }
 }
 

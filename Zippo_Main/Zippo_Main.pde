@@ -1,3 +1,6 @@
+float a = 0.0;
+float s = 0.0;
+
 
 Light prism1;
 
@@ -20,7 +23,13 @@ void setup() {
 void draw() {
   background(50);
   lights();
+  
+  a = a - 0.04;
+  s = 1/((a)*0.8);
+  
   translate(width/2, height/2);
+  
+  scale(s); 
   
   pushMatrix();
   prism1.update();
