@@ -18,17 +18,17 @@ ArrayList<Light> crowdLight4 = new ArrayList<Light>();
 
 int numBand1 = 1;
 int numBand2 = 2;
-int numCrowd1 = 50;
-int numCrowd2 = 250;
-int numCrowd3 = 400;
-int numCrowd4 = 100;
-
+int numCrowd1 = 25;
+int numCrowd2 = 150;
+int numCrowd3 = 200;
+int numCrowd4 = 25;
+/*
 //array of yellow colors
 color r1 = color(random(225, 255), random(200, 225), random(75, 100));
 color r2 = color(random(225, 255), random(185, 200), random(75, 100));
 color r3 = color(random(225, 255), random(165, 185), random(75, 100));
 color[] r_colors = { r1, r2, r3 }; //array of above colors
-
+*/
 // array of blue colors
 color b1 = color(random(75, 100), random(185, 225), random(225, 255));
 color b2 = color(random(75, 100), random(185, 200), random(225, 255));
@@ -47,7 +47,9 @@ color p2 = color(random(185, 200), random(75, 100), random(225, 255));
 color p3 = color(random(165, 185), random(75, 100), random(225, 255));
 color[] p_colors = { p1, p2, p3 }; //array of above colors
 
-color[][] chooseColor = { r_colors, b_colors, g_colors, p_colors };
+color[][] chooseColor = { b_colors, g_colors, p_colors };
+int arrayLength = chooseColor.length;
+
 
 void setup() {
   size(1200, 800, P3D);
@@ -103,9 +105,7 @@ void draw() {
     Light thePrisms = (Light) bandLight1.get(i);
     
     //thePrisms.shrinkLight();
-    
     pushMatrix();
-    
     thePrisms.shrinkLight();
     thePrisms.bandUpdate();
     thePrisms.moveLight();
@@ -120,10 +120,11 @@ void draw() {
     // getting Light from bandLight array
     Light thePrisms = (Light) bandLight2.get(i);
     
+    
     //thePrisms.shrinkLight();
     
     pushMatrix();
-    
+
     thePrisms.shrinkLight();
     thePrisms.bandUpdate();
     thePrisms.moveLight();
@@ -137,6 +138,7 @@ void draw() {
     
     // getting Light from bandLight array
     Light thePrisms = (Light) crowdLight1.get(i);
+
     
     pushMatrix();
     thePrisms.shrinkLight();

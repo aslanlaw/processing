@@ -12,7 +12,7 @@ class Light extends Shape3D {
   
   float centerpoint; 
   
-  PVector pos, vel;
+  PVector pos;
   
   float ac = 0.0;
   float sc = 0.0;
@@ -22,7 +22,6 @@ class Light extends Shape3D {
     this.radius = radius;
     
     pos = new PVector(random(-width/2, width/2), random(-height/2, height/2));
-    vel = new PVector(random(-11, 1)/13, random(-11, 1)/13);
     
     init();
   }
@@ -170,9 +169,9 @@ class Light extends Shape3D {
   }
   
   void bandUpdate() {
-    fill(b_colors[int(random(0,3))]);
+    fill(chooseColor[int(random(0,3))][int(random(0,3))]);
     pushMatrix();
-    translate(pos.x, pos.y);
+    translate(pos.x/2, pos.y/2);
     rotateX(frameCount*PI/200);
     rotateY(frameCount*PI/300);
     drawLight();
@@ -180,8 +179,14 @@ class Light extends Shape3D {
   }
   
   void crowdUpdate() {
-    fill(b_colors[int(random(0,3))]);
+    /*
+    color[] f = chooseColor[int(random(chooseColor.length))];
+    color e = f[int(random(f.length))];
+    fill(e);
+    */
+    
     pushMatrix();  
+    fill(chooseColor[int(random(0,3))][int(random(0,3))]);
     translate(pos.x, pos.y);
     rotateX(frameCount*PI/200);
     rotateY(frameCount*PI/300);
