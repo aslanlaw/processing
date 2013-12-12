@@ -23,18 +23,31 @@ int numCrowd2 = 250;
 int numCrowd3 = 400;
 int numCrowd4 = 100;
 
-// array of blue colors
-color b1 = color(25, 75, random(50, 100));
-color b2 = color(25, 75, random(75, 125));
-color b3 = color(25, 75, random(100, 150));
-color[] b_colors = { b1, b2, b3 }; //array of above colors
+//array of yellow colors
+color r1 = color(random(225, 255), random(200, 225), random(75, 100));
+color r2 = color(random(225, 255), random(185, 200), random(75, 100));
+color r3 = color(random(225, 255), random(165, 185), random(75, 100));
+color[] r_colors = { r1, r2, r3 }; //array of above colors
 
 // array of blue colors
-color r1 = color(random(225, 255), random(185, 225), random(75, 100));
-color r2 = color(random(75, 100), random(185, 225), random(225, 255));
-color r3 = color(random(75, 100), random(225, 255), random(185, 225));
-color r4 = color(random(185, 225), random(75, 100), random(225, 255));
-color[] r_colors = { r1, r2, r3, r4 }; //array of above colors
+color b1 = color(random(75, 100), random(185, 225), random(225, 255));
+color b2 = color(random(75, 100), random(185, 200), random(225, 255));
+color b3 = color(random(75, 100), random(165, 185), random(225, 255));
+color[] b_colors = { b1, b2, b3 }; //array of above colors
+
+// array of green colors
+color g1 = color(random(75, 100), random(225, 255), random(200, 225));
+color g2 = color(random(75, 100), random(225, 255), random(185, 200));
+color g3 = color(random(75, 100), random(225, 255), random(165, 185));
+color[] g_colors = { g1, g2, g3 }; //array of above colors
+
+// array of purple colors
+color p1 = color(random(200, 225), random(75, 100), random(225, 255));
+color p2 = color(random(185, 200), random(75, 100), random(225, 255));
+color p3 = color(random(165, 185), random(75, 100), random(225, 255));
+color[] p_colors = { p1, p2, p3 }; //array of above colors
+
+color[][] chooseColor = { r_colors, b_colors, g_colors, p_colors };
 
 void setup() {
   size(1200, 800, P3D);

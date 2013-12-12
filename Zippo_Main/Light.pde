@@ -180,7 +180,7 @@ class Light extends Shape3D {
   }
   
   void crowdUpdate() {
-    fill(r_colors[int(random(0,4))]);
+    fill(b_colors[int(random(0,4))]);
     pushMatrix();;    
     translate(pos.x, pos.y);
     rotateX(frameCount*PI/200);
