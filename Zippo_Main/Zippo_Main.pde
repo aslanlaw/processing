@@ -1,10 +1,27 @@
+//showing arrays
+boolean one, two, three, four, five, six;
+void keyPressed(){
+  if (key == 'q' || key == 'Q') one = true;
+  if (key == 'w' || key == 'W') two = true;
+  if (key == 'a' || key == 'A') three = true;
+  if (key == 's' || key == 'S') four = true;
+  if (key == 'd' || key == 'D') five = true;
+  if (key == 'f' || key == 'F') six = true;
+}
 
+ArrayList<Light> bandLight1 = new ArrayList<Light>();
+ArrayList<Light> bandLight2 = new ArrayList<Light>();
+ArrayList<Light> crowdLight1 = new ArrayList<Light>();
+ArrayList<Light> crowdLight2 = new ArrayList<Light>();
+ArrayList<Light> crowdLight3 = new ArrayList<Light>();
+ArrayList<Light> crowdLight4 = new ArrayList<Light>();
 
-ArrayList<Light> bandLight = new ArrayList<Light>();
-ArrayList<Light> crowdLight = new ArrayList<Light>();
-
-int numBand = 3;
-int numCrowd = 1000;
+int numBand1 = 1;
+int numBand2 = 2;
+int numCrowd1 = 50;
+int numCrowd2 = 250;
+int numCrowd3 = 400;
+int numCrowd4 = 100;
 
 // array of blue colors
 color b1 = color(25, 75, random(50, 100));
@@ -24,16 +41,37 @@ void setup() {
   smooth();
   
   // adding Light to bandLight (total of 3 for each band member)
-  for (int i=0; i < numBand; i++) {
+  for (int i=0; i < numBand1; i++) {
     Light bandPrism = new Light(5);
-    bandLight.add(bandPrism);
+    bandLight1.add(bandPrism);
+  };
+  
+    for (int i=0; i < numBand2; i++) {
+    Light bandPrism = new Light(5);
+    bandLight2.add(bandPrism);
   };
   
   // adding Light to crowdLight 
-  for (int i=0; i < numCrowd; i++) {
+  for (int i=0; i < numCrowd1; i++) {
     Light crowdPrism = new Light(random(2,5));
-    crowdLight.add(crowdPrism);
+    crowdLight1.add(crowdPrism);
   };
+  
+    for (int i=0; i < numCrowd2; i++) {
+    Light crowdPrism = new Light(random(2,5));
+    crowdLight2.add(crowdPrism);
+  };
+  
+    for (int i=0; i < numCrowd3; i++) {
+    Light crowdPrism = new Light(random(2,5));
+    crowdLight3.add(crowdPrism);
+  };
+  
+    for (int i=0; i < numCrowd4; i++) {
+    Light crowdPrism = new Light(random(2,5));
+    crowdLight4.add(crowdPrism);
+  };
+  
   //prism1 = new Light(25);
   //prism1 = new Light(random(25, 50));
 }
@@ -43,23 +81,49 @@ void draw() {
   lights();
   
   translate(width/2, height/2);
-  for (int i=0; i < bandLight.size(); i++) {
+  
+  if (one == true){
+  
+  for (int i=0; i < bandLight1.size(); i++) {
     
     // getting Light from bandLight array
-    Light thePrisms = (Light) bandLight.get(i);
+    Light thePrisms = (Light) bandLight1.get(i);
     
     //thePrisms.shrinkLight();
     
     pushMatrix();
+    
+    thePrisms.shrinkLight();
     thePrisms.bandUpdate();
     thePrisms.moveLight();
     popMatrix();
   }
+  }
   
-  for (int i=0; i < crowdLight.size(); i++) {
+    if (two == true){
+  
+  for (int i=0; i < bandLight2.size(); i++) {
     
     // getting Light from bandLight array
-    Light thePrisms = (Light) crowdLight.get(i);
+    Light thePrisms = (Light) bandLight2.get(i);
+    
+    //thePrisms.shrinkLight();
+    
+    pushMatrix();
+    
+    thePrisms.shrinkLight();
+    thePrisms.bandUpdate();
+    thePrisms.moveLight();
+    popMatrix();
+  }
+  }
+  
+  if (three == true){
+  
+  for (int i=0; i < crowdLight1.size(); i++) {
+    
+    // getting Light from bandLight array
+    Light thePrisms = (Light) crowdLight1.get(i);
     
     pushMatrix();
     thePrisms.shrinkLight();
@@ -67,4 +131,51 @@ void draw() {
     thePrisms.moveLight();
     popMatrix();
   }
+  }
+  
+    if (four == true){
+  
+  for (int i=0; i < crowdLight2.size(); i++) {
+    
+    // getting Light from bandLight array
+    Light thePrisms = (Light) crowdLight2.get(i);
+    
+    pushMatrix();
+    thePrisms.shrinkLight();
+    thePrisms.crowdUpdate();
+    thePrisms.moveLight();
+    popMatrix();
+  }
+  }
+  
+    if (five == true){
+  
+  for (int i=0; i < crowdLight3.size(); i++) {
+    
+    // getting Light from bandLight array
+    Light thePrisms = (Light) crowdLight3.get(i);
+    
+    pushMatrix();
+    thePrisms.shrinkLight();
+    thePrisms.crowdUpdate();
+    thePrisms.moveLight();
+    popMatrix();
+  }
+  }
+  
+    if (six == true){
+  
+  for (int i=0; i < crowdLight4.size(); i++) {
+    
+    // getting Light from bandLight array
+    Light thePrisms = (Light) crowdLight4.get(i);
+    
+    pushMatrix();
+    thePrisms.shrinkLight();
+    thePrisms.crowdUpdate();
+    thePrisms.moveLight();
+    popMatrix();
+  }
+  }
+  
 }
